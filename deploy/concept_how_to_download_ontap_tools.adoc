@@ -1,0 +1,32 @@
+---
+permalink: deploy/concept_how_to_download_ontap_tools.html 
+sidebar: sidebar 
+keywords:  
+summary: 您可以从 NetApp 支持站点下载适用于 VMware vSphere 的 ONTAP 工具的 .ova 文件。 
+---
+= 如何下载 ONTAP 工具
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以下载 `.zip` 包含中适用于VMware vSphere的ONTAP工具的二进制文件(_.ova_)和签名证书的文件 https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab["NetApp 支持站点"^]。
+
+_.ova_ 文件包含 ONTAP 工具。部署完成后、系统会在您的环境中安装ONTAP工具和VASA产品。默认情况下、一旦您确定后续部署模式并根据需要选择是否启用VASA Provider、ONTAP工具就会开始工作。
+
+
+
+== 内容库
+
+VMware中的内容库是一个容器对象、用于存储VM模板、vapp模板和其他类型的文件。使用内容库进行部署可为您提供无缝体验、因为它不依赖于网络连接。
+在HA配置中部署OVA之前、您需要先创建一个内容库来存储OVA。请勿为内容库选择任何安全策略或设置任何密码。
+按照以下步骤创建内容库：
+
+* 步骤 *
+
+. 登录到vSphere客户端。
+. 选择vSphere Client旁边的水平省略号并选择*内容库*。
+. 选择页面右侧的*创建*按钮。
+. 提供库的名称并创建内容库。
+

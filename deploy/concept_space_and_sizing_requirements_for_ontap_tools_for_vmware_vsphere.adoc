@@ -1,0 +1,112 @@
+---
+permalink: deploy/concept_space_and_sizing_requirements_for_ontap_tools_for_vmware_vsphere.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: 在为 VMware vSphere 部署 ONTAP 工具之前，您应熟悉部署软件包的空间要求以及一些基本主机系统要求。 
+---
+= 部署 ONTAP 工具的要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在为 VMware vSphere 部署 ONTAP 工具之前，您应熟悉部署软件包的空间要求以及一些基本主机系统要求。
+
+您可以将ONTAP工具与Windows vCenter Server或VMware vCenter Server虚拟设备(vCSA)结合使用。您必须在包含ESXi系统的受支持vSphere上部署ONTAP工具。
+
+* *每个节点的安装包空间要求*
++
+** 10 GB用于精简配置安装
+** 200 GB用于厚配置安装
+
+
+* *每个节点的主机系统规模估算要求*
+根据部署规模和每个节点的建议内存如下表所示：
+
+
+|===
+
+
+| 部署类型 | CPU | 内存(GB) 
+
+
+| 小型(S) | 8. | 16. 
+
+
+| 中(M) | 12 | 24. 
+
+
+| 大(L) | 16. | 32. 
+|===
+
+
+== 最低存储和应用程序要求：
+
+|===
+| 存储、主机和应用程序 | 版本要求 
+
+
+| ONTAP | ONTAP 9.10.1、9.11、9.12和9.13 
+
+
+| VMware vSphere | 支持的最低VMware版本为7.1.3。 
+
+
+| ESXi主机 | ESXi 7.0.3或更高版本 
+
+
+| vCenter Server | vCenter 7.0.3 
+
+
+| VASA 提供程序 | 3.0 
+
+
+| OVA应用程序 | 10.0 
+|===
+互操作性表工具(IMT)提供了有关受支持的ONTAP、vCenter Server、ESXi主机和插件应用程序版本的最新信息。
+
+https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src=IMT["互操作性表工具"^]
+
+
+
+== 其他部署注意事项
+
+在自定义部署 ONTAP 工具时，您必须考虑少量要求。
+
+
+
+=== 应用程序用户密码
+
+这是分配给管理员帐户的密码。出于安全原因、建议密码长度为8到30个字符、并且至少包含一个大写、一个小写、一个数字和一个特殊字符。密码将在90天后过期。
+
+
+
+=== 设备维护控制台凭据
+
+您必须使用 `m部分` 的用户名访问维护控制台。您可以在部署期间为 " `m熟悉` " 用户设置密码。您可以使用 ONTAP 工具维护控制台的应用程序配置菜单更改密码。
+
+
+
+=== vCenter Server IP 地址
+
+* 您应提供要向其注册ONTAP工具的vCenter Server实例的IP地址(IPv4)。
++
+生成的ONTAP工具和vASA证书类型取决于您在部署期间提供的IP地址(IPv4)。
+
+* 用于向vCenter Server注册的ONTAP工具IP地址取决于在部署向导中输入的vCenter Server IP地址(IPv4)类型。
++
+ONTAP工具和VASA证书将使用vCenter Server注册期间使用的相同IP地址类型来生成。
+
+* 确保在安装期间未迁移虚拟机。
++
+
+NOTE: 适用于VMware vSphere 10.0版本的ONTAP工具不支持IPv6。
+
+
+
+
+
+=== 设备网络属性
+
+为ONTAP工具和其他网络参数指定有效的DNS主机名(非限定)以及静态IP地址。适用于VMware vSphere 10.0版本的ONTAP工具不支持DHCP。要正确安装和操作，所有这些参数都是必需的。

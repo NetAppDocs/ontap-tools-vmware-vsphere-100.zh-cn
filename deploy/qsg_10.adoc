@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: deploy/qsg_10.html 
+keywords: QSG, ONTAP tools for VMware vSphere, Quick start guide, Installing 
+summary: 提供有关部署和初始化适用于 VMware vSphere 的 ONTAP 工具的说明。 
+---
+= 适用于 VMware vSphere 的 ONTAP 工具快速入门
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+适用于VMware vSphere的ONTAP工具是一个vCenter Server插件、其中包括ONTAP工具和VASA Provider扩展。建议对所有ONTAP vSphere环境使用ONTAP工具、因为它会根据最佳实践配置ESXi主机设置和配置ONTAP存储。要支持虚拟卷(vvol)、需要VASA Provider。
+
+
+
+== 准备安装
+
+您可以将此插件部署为虚拟设备，这样可以减少在 vCenter Server 中单独安装和注册每个产品的工作量。
+
+
+
+=== 部署要求
+
+在部署适用于VMware vSphere的ONTAP工具之前、您应熟悉部署软件包的空间要求以及一些基本主机系统要求。
+
+您可以将ONTAP工具与Windows vCenter Server或VMware vCenter Server VirtualAppliance (vCSA)结合使用。您必须在包含ESXi系统的受支持vSphere上部署ONTAP工具。
+
+* *每个节点的安装包空间要求*
++
+** 10 GB用于精简配置安装
+** 200 GB用于厚配置安装
+
+
+* *每个节点的主机系统规模估算要求*
+根据部署规模和每个节点的建议内存如下表所示：
+
+
+|===
+
+
+| 部署类型 | CPU | 内存(GB) 
+
+
+| 小型(S) | 8. | 16. 
+
+
+| 中(M) | 12 | 24. 
+
+
+| 大(L) | 16. | 32. 
+|===
+
+
+== 最低存储和应用程序要求：
+
+|===
+| 存储、主机和应用程序 | 版本要求 
+
+
+| ONTAP | ONTAP 9.10.1、9.11、9.12和9.13 
+
+
+| VMware vSphere | 支持的最低VMware版本为7.1.3。 
+
+
+| ESXi主机 | ESXi 7.0.3或更高版本 
+
+
+| vCenter Server | vCenter 7.0.3 
+
+
+| VASA 提供程序 | 3.0 
+
+
+| OVA应用程序 | 10.0 
+|===
+有关详细信息，请参见 link:../deploy/concept_space_and_sizing_requirements_for_ontap_tools_for_vmware_vsphere.html["部署 ONTAP 工具的要求"]
+
+
+
+=== ONTAP 工具要求
+
+* 配置和设置 vCenter Server 环境。
+* 下载 .ova 文件。
+* vCenter Server 实例的登录凭据。
+* 删除浏览器缓存以避免在部署 ONTAP 工具期间出现任何浏览器缓存问题描述。
+* 配置虚拟设备响应 ICMP ping 所使用的默认网关。
+* 虚拟设备的有效 DNS 主机名。
+
+
+
+
+== 部署 ONTAP 工具
+
+.步骤
+. 下载 `.zip` 包含中的二进制文件和签名证书的文件 https://mysupport.netapp.com/site/products/all/details/otv/downloads-tab["NetApp 支持站点"^] 连接到 vSphere Client 系统以部署 ONTAP 工具。
+. 提取 `.zip` 归档并部署 `.ova` 文件
+. 登录到vSphere服务器。
+. 导航到要部署OVA的资源池或主机。
+. 右键单击所需的数据中心，然后选择*Deploy OVF temple...*。
+. 您可以输入.ova文件的URL，也可以浏览到保存.ova文件的文件夹，然后选择*Next*。
+. 输入所需详细信息以完成部署。
+
+
+您可以从任务选项卡查看部署进度、并等待部署完成。

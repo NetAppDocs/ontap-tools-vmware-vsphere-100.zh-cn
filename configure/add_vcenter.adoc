@@ -1,0 +1,27 @@
+---
+permalink: configure/add_vcenter.html 
+sidebar: sidebar 
+keywords:  
+summary: 'vCenter是一种中央管理平台、可用于控制主机、虚拟机(VM)和存储后端。' 
+---
+= 添加vCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter是一种中央管理平台、可用于控制主机、虚拟机(VM)和存储后端。
+
+* 关于此任务 *
+
+您可以使用一个适用于VMware vCenter 10.0的ONTAP工具实例添加和管理多个vCenter。
+
+* 步骤 *
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从侧栏中选择vCenter
+. 选择*使用vCenter IP地址/主机名、用户名、密码和端口添加*到板载vCenter。
+
+
+请参见 link:../configure/task_configure_user_role_and_privileges.html["非管理员全局范围集群用户所需的最低权限列表"]。

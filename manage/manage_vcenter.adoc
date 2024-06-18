@@ -1,0 +1,118 @@
+---
+permalink: manage/manage_vcenter.html 
+sidebar: sidebar 
+keywords:  
+summary: vCenter是一种中央管理平台、可用于控制主机、虚拟机和存储后端。 
+---
+= 管理vCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter是一种中央管理平台、可用于控制主机、虚拟机和存储后端。
+
+
+
+== 添加vCenter
+
+您可以使用一个适用于VMware vCenter 10.0的ONTAP工具实例添加和管理多个vCenter。
+
+* 步骤 *
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从侧栏中选择vCenter
+. 选择*使用vCenter IP地址/主机名、用户名、密码和端口添加*到板载vCenter。
+. 导航到*存储后端*页面并选择*使用主机名、用户名、密码和端口添加到板载存储后端*(ONTAP集群)。
+
+
+请参见 link:../configure/task_configure_user_role_and_privileges.html["非管理员全局范围集群用户所需的最低权限列表"]。
+
+
+
+== 将存储后端与vCenter关联或解除关联
+
+vCenter列表页面显示了相关的存储后端数量。每个vCenter都可以选择关联或解除存储后端关联
+此任务可帮助您全局创建存储后端与已登录vCenter之间的映射。
+
+* 步骤 *
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从侧栏中选择vCenter。
+. 单击要与存储后端关联或解除关联的vCenter旁边的垂直省略号。
+. 根据您要执行的操作，选择*关联或取消关联存储后端*。
++
+请参见 link:../configure/task_configure_user_role_and_privileges.html["非管理员全局范围集群用户所需的最低权限列表"]。
+
+
+
+
+
+== 修改vCenter
+
+请按照以下步骤修改这些vCenter。
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从侧栏中选择vCenter
+. 单击要修改的vCenter旁边的垂直省略号、然后选择*修改*。
+. 修改vCenter详细信息并选择*修改*。
+
+
+
+
+== 删除vCenter
+
+您需要先删除连接到vCenter的所有存储后端、然后再将其删除。
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从侧栏中选择vCenter
+. 单击要删除的vCenter旁边的垂直省略号、然后选择*删除*。
++
+
+NOTE: 删除vCenter后、应用程序将不再对其进行维护。
+
+
+
+
+
+== 管理存储阈值
+
+使用以下获取阈值API可检索为卷和聚合配置的存储阈值限制。
+
+[listing]
+----
+GET​/virtualization​/api​/v1​/vcenters​/{vcguid}​/storage-thresholds
+----
+示例
+按vCenter guid获取每个vCenter的存储阈值
+
+[listing]
+----
+GET "/api/v1/vcenters/beded9ad-6bbb-4c9e-b4c6-691250bfe2da/storage-thresholds"
+----
+在达到配置的阈值限制时、使用以下修补程序配置卷和聚合警报以生成通知。
+
+[listing]
+----
+PATCH​/virtualization​/api​/v1​/vcenters​/{vcguid}​/storage-thresholds
+----
+示例
+按vCenter guid更新每个vCenter的存储阈值。对于接近全满、默认限制为80%、对于全满、默认限制为90%。
+修改所有阈值设置
+
+[listing]
+----
+{{{}PATCH "/api/v1/vcenters/beded9ad-6bbb-4c9e-b4c6-691250bfe2da/storage-thresholds"
+Request Body
+{
+"volume":
+
+{ "nearly_full_percent": 80, "full_percent": 90 }
+,
+"aggregate": {
+"nearly_full_percent": 80,
+"full_percent": 90
+}
+}{}}}{}
+----

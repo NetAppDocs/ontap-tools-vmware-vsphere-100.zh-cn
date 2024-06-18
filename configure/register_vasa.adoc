@@ -1,0 +1,39 @@
+---
+permalink: configure/register_vasa.html 
+sidebar: sidebar 
+keywords:  
+summary: 您可以使用自签名证书或CA签名证书向vCenter注册VASA Provider。自签名证书是使用VMware CA握手生成的。 
+---
+= 向vCenter注册VASA Provider
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用自签名证书或CA签名证书向vCenter注册VASA Provider。自签名证书是使用VMware CA握手生成的。
+
+* 关于此任务 *
+
+使用CA签名证书方法时、您需要将CA签名证书放置在vCenter中。
+
+* 步骤 *
+
+. 导航到vCenter Server。
+. 选择*配置*>*存储提供程序*。
+. 单击*Add*图标。
+. 输入存储提供程序的连接信息：
++
+.. name：任何用户友好的名称、例如"ScaleoutVP"
+.. 网址： `\https://<name>/virtualization/version.xml` - URL中的名称对应于在单vCenter部署OVA期间提供的虚拟IP (或多vCenter部署的域名)。将证书添加到URL。将相同的证书发布到vCenter。
+.. 凭据：在OVA部署期间提供的< VASA Provider用户名>/< VASA Provider密码>。
+
+
+. 注册此VASA后，单击*OK*。
+确保它列在"Storage Provided"(存储提供程序)下、并且状态为"Onlined"(联机)。
++
+如果您已在vCenter中放置了CA签名证书、则仍会使用CA签名证书进行注册。否则、握手将失败、并且注册默认为SSA证书。
+
+. 您可以将多个vCenter注册到一个横向扩展VP实例。
+重复上述步骤以注册多个vCenter。
+

@@ -1,0 +1,30 @@
+---
+permalink: configure/add_storage_backend.html 
+sidebar: sidebar 
+keywords:  
+summary: 存储后端是EXSi主机用于数据存储的系统。 
+---
+= 添加存储后端
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+存储后端是EXSi主机用于数据存储的系统。
+
+* 关于此任务 *
+
+此任务可帮助您bord the ONTAP cluster。
+
+* 步骤 *
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从边栏中选择*存储后端*。
+. 选择 * 添加 * 。
+. 提供服务器IP地址或FQDN、用户名和密码详细信息，然后选择*Add*。
++
+
+NOTE: 仅支持IPv4管理生命周期。
+
+

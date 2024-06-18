@@ -1,0 +1,101 @@
+---
+permalink: migrate/migrate_to_ng.html 
+sidebar: sidebar 
+keywords: migrate 
+summary: 迁移存储数据时、系统会使用REST API手动启用存储后端。迁移VASA提供程序数据时、数据会从现有Derby数据库导出并导入到MongoDB数据库中。 
+---
+= 迁移到最新版本的ONTAP工具
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+迁移存储数据时、系统会使用REST API手动启用存储后端。迁移VASA提供程序数据时、数据会从现有Derby数据库导出并导入到MongoDB数据库中。
+
+
+NOTE: 建议仅在传统设置仅提供了VASA提供程序功能时才迁移此设置。如果您具有传统/NVMe数据存储库、vVol复制等功能、并且在传统上启用了SRA、则建议不要将此设置迁移到适用于VMware vSphere 10.0的ONTAP工具。
+
+* 关于此任务 *
+
+支持从适用于VMware vSphere 9.10D2和9.11D2的ONTAP工具迁移到10.0版。迁移自：
+*适用于VMware vSphere 9.10版本的ONTAP工具、请先升级到9.10D2版本、然后再迁移到10.0版本。
+*适用于VMware vSphere 9.11版本的ONTAP工具、请先升级到9.11d4版本、然后再迁移到10.0版本。
+
+
+NOTE: 作为现有用户、在升级到9.10D修补程序或9.11D修补程序之前、您需要从9.10/9.11创建OVA备份
+
+* 步骤 *
+
+. 在适用于VMware vSphere 9.10D2和9.11D2的现有ONTAP工具上启用Derby端口1527。要启用此端口、请使用root用户登录到命令行界面、然后运行以下命令：
++
+[listing]
+----
+iptables -I INPUT 1 -p tcp --dport 1527 -j ACCEPT
+----
+. 部署适用于VMware vSphere 10.0版本的适用于ONTAP的OVA工具。请参见 link:../deploy/qsg_10.html["ONTAP 工具快速入门"]
+. 添加要迁移到适用于VMware vSphere 10.0版本的ONTAP工具的vCenter。请参见 link:../configure/add_vcenter.html["添加vCenter"]。
+. 从远程插件vCenter API本地板载存储后端。请参见 link:../configure/onboard_svm.html["板载存储后端"]。将存储添加为本地范围以进行迁移。
+. 使用以下API进行迁移：
++
+[listing]
+----
+/api/v1/vcenters/{vcguid}/migration-jobs
+
+{
+  "otv_ip": "10.10.10.10",
+  "vasa_provider_credentials": {
+    "username": "Administrator",
+    "password": "password"
+  }
+}
+----
++
+以上API调用将提供作业ID、可用于状态检查。
+
+. 使用以下URI检查状态：
++
+[listing]
+----
+https://xx.xx.xx.xxx:8443/virtualization/api/jobmanager/v2/jobs/<JobID>?includeSubJobsAndTasks=true
+----
+. 作业完成后、验证迁移报告。您可以在JobData中查看来自作业响应的报告。
+. 将ONTAP工具存储提供程序10.0添加到vCenter和中 link:../configure/register_vasa.html["向vCenter注册VASA Provider"]。
+. 停止ONTAP工具存储提供程序9.10/9.11 VASA Provider服务(从maIT控制台停止VASA Provider)。
++
+NetApp建议您不要删除此VASA提供程序。
+
++
+停止旧的VASA提供程序后、vCenter将故障转移到适用于VMware vSphere 10.0的ONTAP工具。所有数据存储库和VM均可通过适用于VMware vSphere 10.0的ONTAP工具访问和提供服务。
+
+. 使用以下API执行修补程序迁移：
++
+[listing]
+----
+/virtualization/api/v1/vcenters/{vcguid}/migration-jobs/{migration_id}
+----
++
+修补操作的请求正文为空。
+
++
+
+NOTE: UUID是迁移后API响应中返回的迁移UUID。
+
++
+修补程序迁移API成功后、所有VM都将符合存储策略。
+
+
+
+用于迁移的删除API为：
+
+[listing]
+----
+Delete /virtualization/api/v1/vcenters/{vcguid}/migration-jobs/{migration_id}
+----
+此API将按迁移ID删除迁移、并删除给定vCenter上的迁移。
+
+成功迁移并将ONTAP工具10.0注册到vCenter后、请执行以下操作：
+
+* 刷新所有主机上的证书。
+* 请等待一段时间、然后再执行数据存储库(DS)和虚拟机(VM)操作。等待时间取决于设置中存在的主机、DS和VM的数量。如果不等待、操作可能会间歇性失败。
+

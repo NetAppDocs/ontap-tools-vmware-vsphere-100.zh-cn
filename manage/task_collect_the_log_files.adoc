@@ -1,0 +1,28 @@
+---
+permalink: manage/task_collect_the_log_files.html 
+sidebar: sidebar 
+keywords:  
+summary: '您可以使用适用于VMware vSphere的ONTAP工具图形用户界面(GUI\)中的选项收集ONTAP工具的日志文件。技术支持可能会要求您收集日志文件以帮助解决问题。' 
+---
+= 收集日志文件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过ONTAP工具管理器用户界面中的选项收集适用于VMware vSphere的ONTAP工具的日志文件。技术支持可能会要求您收集日志文件以帮助解决问题。
+
+* 步骤 *
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从边栏中选择*Log Bundes*。
++
+此操作可能需要几分钟时间。
+
+. 选择*生成*以生成日志文件。
+. 输入日志分发包的标签，然后选择*Gener成*。
++
+下载tar.gz文件并将其发送给技术支持。
+
+

@@ -1,0 +1,33 @@
+---
+permalink: concepts/concept_configure_high_availability_for_ontap_tools_for_vmware_vsphere.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP 工具支持高可用性 \ （ HA\ ）配置，以帮助在发生故障时使 ONTAP 工具能够无中断地运行。 
+---
+= 为 ONTAP 工具配置高可用性
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 工具支持高可用性（ High-Availability ， HA ）配置，有助于在发生故障时确保 ONTAP 工具无中断运行。
+
+ONTAP 工具依靠 VMware vSphere 高可用性（ HA ）功能和 vSphere 容错（ FT ）功能来提供高可用性。通过高可用性（ High-Availability ， HA ）解决方案，可以从以下原因导致的中断中快速恢复：
+
+* 主机故障
++
+
+NOTE: 仅支持单节点故障。
+
+* 网络故障
+* 虚拟机故障（子操作系统故障）
+* 应用程序（ ONTAP 工具）崩溃
+
+
+要使 ONTAP 工具提供高可用性，无需进行其他配置。只能根据 vCenter Server 和 ESXi 主机的要求为其配置 VMware vSphere HA 功能或 vSphere FT 功能。HA 和 FT 都需要集群主机以及共享存储。FT 具有其他要求和限制。
+
+除了 VMware vSphere HA 解决方案和 vSphere FT 解决方案之外， ONTAP 工具还有助于保持 ONTAP 工具服务始终运行。
+
+
+NOTE: ONTAP 工具不支持 vCenter HA 。

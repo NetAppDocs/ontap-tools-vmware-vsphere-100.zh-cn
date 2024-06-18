@@ -1,0 +1,31 @@
+---
+permalink: concepts/concept_ontap_tools_overview.html 
+sidebar: sidebar 
+keywords:  
+summary: 适用于VMware vSphere的ONTAP工具可在使用NetApp存储后端的VMware环境中管理数据存储库和虚拟机的配置。 
+---
+= ONTAP 工具概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+适用于VMware vSphere的ONTAP工具可在使用NetApp存储后端的VMware环境中管理数据存储库和虚拟机的配置。它使管理员可以直接管理vCenter Server中的存储、从而简化VMware环境的存储和数据管理。
+
+适用于VMware vSphere 10.0版本的ONTAP工具是一组水平可扩展、事件驱动、
+部署为开放式虚拟设备(OVA)的微服务。它封装在各种部署外形中、例如适用于内部环境的开放式虚拟设备(Open Virtual Appliance、OVA)和软件即服务(Software as a Service、SaaS)。
+
+适用于VMware vSphere的ONTAP工具包括：
+
+* 虚拟机功能
+* 适用于VM的VASA Provider精细化
+* 基于存储策略的管理
+
+
+
+
+== ONTAP工具VASA Provider
+
+ONTAP工具、提供程序可满足虚拟卷(VVOl)的高扩展要求。它支持NFS协议、iSCSI协议和OVA部署。
+适用于VMware的VASA Provider产品可在使用ONTAP的VMware部署中提供生命周期管理。

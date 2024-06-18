@@ -1,0 +1,36 @@
+---
+indexpage:
+  title: 适用于 VMware vSphere 的 ONTAP 工具文档
+  summary: 通过适用于 VMware vSphere 的 ONTAP 工具，您可以在 vCenter Server 环境中配置，管理和保护虚拟数据存储库。
+  keywords: ontap, tools, vmware, vsphere, manage, configure, virtual machine, protect,
+    enable, datastore
+  lead: 通过适用于 VMware vSphere 的 ONTAP 工具，您可以在 vCenter Server 环境中配置，管理和保护虚拟数据存储库。
+  tiles:
+  - title: 入门
+    links:
+    - title: 发行说明
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2886542
+    - title: 了解适用于 VMware vSphere 的 ONTAP 工具
+      url: "/concepts/concept_ontap_tools_overview.html"
+    - title: ONTAP 工具快速入门
+      url: "/deploy/qsg_10.html"
+    - title: 部署 ONTAP 工具
+      url: "/deploy/prepare_deployment.html"
+    - title: 迁移ONTAP工具
+      url: migrate/migrate_to_ng.html
+  - title: 使用 ONTAP 工具
+    links:
+    - title: 配置基于角色的访问控制
+      url: "/concepts/concept_vcenter_server_role_based_access_control_features_in_vsc_for_vmware_vsphere.html"
+    - title: 配置远程诊断
+      url: "/manage/task_configure_vasa_provider_to_use_ssh_for_remote_diag_access.html"
+    - title: 配置高可用性
+      url: "/concepts/concept_configure_high_availability_for_ontap_tools_for_vmware_vsphere.html"
+  - title: 更多资源
+    links:
+    - title: 适用于 VMware 的早期版本 ONTAP 工具的文档
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63792
+    - title: NetApp 知识库— ONTAP 工具
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/VSC_and_VASA_Provider
+    - title: NetApp 社区— ONTAP 工具
+      url: https://community.netapp.com/t5/VMware-Solutions-Discussions/bd-p/vmware-solutions-discussions

@@ -1,0 +1,69 @@
+---
+permalink: deploy/prepare_deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: 您应在环境中部署 ONTAP 工具并指定所需的参数，以便能够使用此设备。 
+---
+= 准备部署ONTAP工具
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+适用于VMware vSphere的ONTAP工具支持包含VASA Provider的多个vCenter Server。
+
+在开始部署适用于VMware vSphere的ONTAP工具之前、您应了解基本存储后端要求、应用程序要求和许可证要求。
+在为 VMware vSphere 部署 ONTAP 工具之前，最好先对部署进行规划，并确定希望如何在环境中配置 ONTAP 工具。
+
+
+
+== 准备部署
+
+以下是继续部署之前的ONTAP工具要求：
+
+* 配置和设置 vCenter Server 环境。
+* 下载_.ova_文件。
+* 确保部署OVA的主机或资源池具有*部署ONTAP工具的要求*一节中所述的最低资源。
+* 删除浏览器缓存。
+* 负载平衡器和Kubarnetes API服务器需要两个虚拟IP。在VLAN中获取两个用于部署的可用IP、用于在部署后访问服务。
+* 从商业CA采购CA证书(根证书、叶证书和中间证书)。
+* 如果在多vCenter部署中必须提供自定义CA证书，请将用于颁发证书的*域名*映射到*虚拟IP*。对域名执行ping检查、以检查域是否已解析为预期IP。
+* ONTAP上需要一个已启用NFS的Storage VM。请按照以下步骤配置Storage VM：
++
+** 打开ONTAP系统管理器和ONTAP命令行界面。
+** 如果要创建新的Storage VM、请登录到ONTAP系统管理器并创建一个启用了NFS的Storage VM。
+** 添加至少具有100 GB的聚合。
+** 验证是否已成功添加聚合：
++
+a)登录到ONTAP命令行界面
+
++
+b)运行命令vserver show -fields aggr-list
+
++
+c)如果您的聚合未列在默认Storage VM中、请运行以下命令：vserver修改<Storage VM name>-aggr-list <aggregate name>
+
++
+要查找要添加到默认Storage VM的聚合的名称、可以在ONTAP命令行界面中使用以下命令：_aggrshow_
+
++
+此命令将显示存储系统上的聚合列表、您可以在*聚合*列中找到需要使用的聚合的名称。
+
+** 部署配置有两个选项、一个是集群凭据、另一个是SVM凭据或直接SVM。对于直接SVM、您需要在开始部署之前为SVM配置管理LIF。跳过此步骤以获取集群凭据。
+** 确保网络路由存在、登录到ONTAP命令行界面并运行命令network route show -vserver <Storage VM name>
++
+如果不存在、请登录到ONTAP命令行界面并运行以下命令：net route create -vserver <vserver name>-Destination <destination IP>-Gateway <gateway IP>-metric 20
+
+** 确保Storage VM存在导出策略。在ONTAP系统管理器上，转至*Storage*>*Storage VM*>*[Storage VM name]*>*Settings*>*Export Policies*。如果没有导出策略、请执行下一步。
+** 在ONTAP命令行界面中使用以下命令创建导出策略规则
++
+vserver导出策略规则create -vserver <Storage VM name>-policyname <export policy name>-clientmatch <ESXI-IP>-rorule any -rwrule any -superusero any
+
++
+
+NOTE: 确保_superuser_值不是_none_。
+
+
+
+

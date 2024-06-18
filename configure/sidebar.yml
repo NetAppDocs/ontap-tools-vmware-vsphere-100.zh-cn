@@ -1,0 +1,24 @@
+---
+section: configure
+title: 配置 ONTAP 工具
+entries:
+- title: 管理网络访问
+  url: "/configure/ip_whitelisting.html"
+- title: 配置用户角色和权限
+  url: "/configure/task_configure_user_role_and_privileges.html"
+- title: ONTAP工具管理器用户界面
+  url: "/configure/ontap_tools_manager_ui.html"
+- title: 添加vCenter
+  url: "/configure/add_vcenter.html"
+- title: 添加存储后端
+  url: "/configure/add_storage_backend.html"
+- title: 将存储后端与vCenter相关联
+  url: "/configure/associate_storage_backend.html"
+- title: vCenter中的板载存储后端(SVM或集群)
+  url: "/configure/onboard_svm.html"
+- title: 向vCenter注册VASA Provider
+  url: "/configure/register_vasa.html"
+- title: 创建卷数据存储库
+  url: "/configure/create_vvols_datastore.html"
+- title: 验证已注册的SVM
+  url: "/configure/verify_registered_svm.html"

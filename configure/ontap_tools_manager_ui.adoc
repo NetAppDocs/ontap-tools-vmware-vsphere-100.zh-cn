@@ -1,0 +1,33 @@
+---
+permalink: configure/ontap_tools_manager_ui.html 
+sidebar: sidebar 
+keywords: ontap tools manager, managerui 
+summary: ONTAP工具管理器为ONTAP工具管理员提供了更多的控制力和功能、有助于对设备、租户和存储后端进行整体管理。 
+---
+= ONTAP工具管理器用户界面
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+适用于VMware vSphere 10.0的ONTAP工具是一个多租户系统、可管理多个vCenter。管理员需要对要管理的vCenter和要加入的存储后端进行更多控制。
+
+ONTAP工具管理器为ONTAP工具管理员提供了更多的控制力和功能、有助于对设备、租户和存储后端进行整体管理。
+
+ONTAP工具可执行以下操作：
+
+* vCenter管理—向ONTAP工具注册和取消注册vCenter
+* 存储后端管理—将ONTAP存储集群注册到ONTAP工具并注销、然后将其全局映射到已启用的vCenter。
++
+从ONTAP工具管理器或通用API添加存储后端时、存储后端为全局存储、从vCenter API添加后、存储后端为本地存储。
+示例：对于多租户设置、您可以全局添加存储后端(集群)、并在本地添加SVM以使用直接SVM凭据。
+
+* 日志捆绑包下载
+
+
+要访问ONTAP工具UI、请启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器登录。
+
+image::../media/ontap_tools_manager.png[ONTAP工具管理器用户界面]
+
+您可以选择*不再显示*选项，以便在从同一浏览器再次登录时不会看到此弹出窗口。

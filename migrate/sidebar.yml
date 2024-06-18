@@ -1,0 +1,6 @@
+---
+section: migrate
+title: 迁移ONTAP工具
+entries:
+- title: 迁移到最新版本的ONTAP工具
+  url: "/migrate/migrate_to_ng.html"

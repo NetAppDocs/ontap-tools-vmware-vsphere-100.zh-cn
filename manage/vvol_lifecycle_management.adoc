@@ -1,0 +1,14 @@
+---
+permalink: manage/vvol_lifecycle_management.html 
+sidebar: sidebar 
+keywords: manage vVols 
+summary: '您可以使用VMware vCenter用户界面管理虚拟卷(Virtual Volume、vvol)。' 
+---
+= 管理VVOV生命周期
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用VMware vCenter用户界面管理虚拟卷(Virtual Volume、vvol)。有关详细信息，请参见 https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.storage.doc/GUID-0F225B19-7C2B-4F33-BADE-766DA1E3B565.html["VMware 文档"]。

@@ -1,0 +1,30 @@
+---
+permalink: configure/associate_storage_backend.html 
+sidebar: sidebar 
+keywords:  
+summary: 需要信息。 
+---
+= 将存储后端与vCenter相关联
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+vCenter列表页面显示了相关的存储后端数量。每个vCenter都有一个关联存储后端的选项
+
+* 关于此任务 *
+
+此任务可帮助您全局创建存储后端与已登录vCenter之间的映射。
+
+* 步骤 *
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从侧栏中选择vCenter。
+. 单击要与存储后端关联的vCenter旁边的垂直省略号。
+. 从弹出窗口的下拉列表中选择存储后端。
+. 选择*关联存储后端*选项可将vCenter与所需的存储后端关联。
++
+请参见 link:../configure/task_configure_user_role_and_privileges.html["非管理员全局范围集群用户所需的最低权限列表"]。
+
+

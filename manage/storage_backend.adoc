@@ -1,0 +1,53 @@
+---
+permalink: manage/storage_backend.html 
+sidebar: sidebar 
+keywords:  
+summary: 存储后端是EXSi主机用于数据存储的系统。 
+---
+= 管理存储后端
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+存储后端是EXSi主机用于数据存储的系统。
+
+
+
+== 添加存储后端
+
+按照以下步骤添加存储后端。
+
+* 步骤 *
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从边栏中选择*存储后端*。
+. 选择 * 添加 * 。
+
+
+
+
+== 修改存储后端
+
+按照以下步骤修改现有存储后端。
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从侧栏中选择存储后端。
+. 选择要修改的*存储后端*
+. 单击垂直省略号菜单，然后选择*Modify*。
+. 输入*用户名*和*密码*以修改存储后端。
+
+
+
+
+== 删除存储后端
+
+您需要先删除连接到存储后端的所有数据存储库、然后再删除存储后端。
+按照以下步骤删除存储后端。
+
+. 启动 `\https://loadBalanceIP:8443/virtualization/ui/` 使用部署期间提供的ONTAP工具管理员凭据从浏览器访问。
+. 从边栏中选择*存储后端*。
+. 选择要删除的存储后端
+. 单击垂直省略号菜单，然后选择*Remove*。
+
