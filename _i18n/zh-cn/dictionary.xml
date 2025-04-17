@@ -818,7 +818,6 @@ ONTAP 9.8及更高版本上基于NFS的虚拟卷数据存储库提供了性能�
   <block id="6b50b8836085008a8950ddeafeb7453a" category="list-text">刷新所有主机上的证书。</block>
   <block id="8d1fe487abd8a4fd3b25772f93b38695" category="list-text">请等待一段时间、然后再执行数据存储库(DS)和虚拟机(VM)操作。等待时间取决于设置中存在的主机、DS和VM的数量。如果不等待、操作可能会间歇性失败。</block>
   <block id="8f7be3c874feb6ef0fd5f20afd8d5fbb" category="sidebar">通过适用于 VMware vSphere 的 ONTAP 工具，您可以在 vCenter Server 环境中配置，管理和保护虚拟数据存储库。</block>
-  <block id="46c4d9bfa1c229940459326940489ab0" category="sidebar">适用于 VMware vSphere 的 ONTAP 工具文档</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
   <block id="da951ef1610be90b45b31baf7b25b179" category="sidebar">了解适用于 VMware vSphere 的 ONTAP 工具</block>
   <block id="3d7fe3e43f9f24fffe5ed0d546d12f13" category="sidebar">部署 ONTAP 工具</block>
@@ -840,4 +839,5 @@ ONTAP 9.8及更高版本上基于NFS的虚拟卷数据存储库提供了性能�
   <block id="4226794a7bb33ab0a2309e30c07c9031" category="sidebar">管理 ONTAP 工具</block>
   <block id="956040396bc93fbe70e3c9e235f5bfdb" category="sidebar">访问 ONTAP 工具维护控制台</block>
   <block id="1fa54bab7f1f7a04eb85d45383a68d04" category="sidebar">迁移到最新版本的ONTAP工具</block>
+  <block id="70805c0934ed6aecfa95bd2f05ac18f9" category="sidebar">适用于VMware vSphere 10.0的ONTAP工具文档</block>
 </blocks>
