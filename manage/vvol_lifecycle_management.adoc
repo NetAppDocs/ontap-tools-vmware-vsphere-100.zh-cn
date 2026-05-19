@@ -11,4 +11,4 @@ summary: '您可以使用VMware vCenter用户界面管理虚拟卷(Virtual Volum
 
 
 [role="lead"]
-您可以使用VMware vCenter用户界面管理虚拟卷(Virtual Volume、vvol)。有关详细信息，请参见 https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.storage.doc/GUID-0F225B19-7C2B-4F33-BADE-766DA1E3B565.html["VMware 文档"]。
+您可以使用 VMWare vCenter 用户界面管理虚拟卷（vVols）。有关详细信息，请参阅 https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-1/vsphere-storage/working-with-virtual-volumes.html#GUID-0F225B19-7C2B-4F33-BADE-766DA1E3B565-en%27["VMware 文档"^]。
